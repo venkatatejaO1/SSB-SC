@@ -1,5 +1,3 @@
-# SSB
-
 EXP NO: 3	SSB-SC-AM MODULATION using SCILAB
 
 AIM:
@@ -52,11 +50,53 @@ Model Waveform
 <img width="706" height="167" alt="image" src="https://github.com/user-attachments/assets/bff0d8fd-d679-444e-af37-0b34585853c1" />
 
 Program
+```
+ac=10;                // Carrier amplitude
+Am=11.3;              // Message amplitude
+fc=6100;             // Carrier frequency
+fm=610;              // Message frequency
+fs=61000;            // Sampling frequency
+t=0:1/fs:2/fm;       // Time base for two message cycles
+wc=2*3.14*fc;        // Carrier angular frequency
+wm=2*3.14*fm;        // Message angular frequency
+// Message signal
+e1=(Am*sin(wm*t));
+subplot(4,1,1);
+plot(t,e1);
+xtitle("Message Signal");
+xgrid();
+// Carrier signal
+e2=(ac*sin(wc*t));
+subplot(4,1,2);
+plot(t,e2);
+title("Carrier signal");
+xgrid
+// --- Sideband Components ---
+sbsc1=(Am/2.*cos(wc*t-wm*t))-(Am/2.*cos(wc*t+wm*t));
+sbsc2=(Am/2.*cos(wc*t-wm*t))+(Am/2.*cos(wc*t+wm*t));
 
+// Combination 1 (USB + LSB together => DSB-SC)
+e3=(sbsc2)+(sbsc1);
+subplot(4,1,3);
+plot(t,e3);
+title("USB + LSB together => DSB-SC");
+xgrid
+// Combination 2 (USB - LSB => isolates one sideband → SSB-SC)
+e4=(sbsc2)-(sbsc1);
+subplot(4,1,4);
+plot(t,e4);
+title("USB - LSB => isolates one sideband → SSB-SC");
+xgrid;
+
+```
 OUTPUT WAVEFORM
+
+<img width="873" height="632" alt="image" src="https://github.com/user-attachments/assets/b69dba8c-acf7-4cc2-a36f-e7b71c8f24f2" />
 
 TABULATION
 
+![WhatsApp Image 2025-11-11 at 11 20 45_18c9ea44](https://github.com/user-attachments/assets/4f596369-7beb-4e2d-aa97-357ce648f161)
+![WhatsApp Image 2025-11-11 at 11 20 45_75b4e5de](https://github.com/user-attachments/assets/bd691870-2b06-4a33-a0cd-c5ff04ddb9c7)
 
 
 
