@@ -106,8 +106,9 @@ TABULATION
 
 
 RESULT:
+![image](https://github.com/user-attachments/assets/533c2185-094c-4aad-a3c0-2cb42c786c2e)
 
-Thus, the SSB-SC-AM Modulation and Demodulation is experimentally done and the output is verified.
+
 
 
 
